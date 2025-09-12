@@ -6,10 +6,9 @@ export class TaskRoutes implements ITaskRoutes {
     private Routes: Router;
     private TaskController: ITaskController;
 
-    constructor(Routes: Router, TaskController: ITaskController) {
-        this.Routes = Routes;
+    constructor(TaskController: ITaskController) {
+        this.Routes = Router();
         this.TaskController = TaskController;
-        this.GetRoutes();
         this.GetTaskRoutes();
     }
     public GetRoutes(): Router {
