@@ -1,8 +1,9 @@
 import { ITask } from "../../domain/Entities/ITask";
 import { v4 as uuidv4 } from 'uuid';
+import { IInMemoryRepository } from "../../domain/Repositories/IInMemoryRepository";
 
 
-export class InMemoryRepository {
+export class InMemoryRepository implements IInMemoryRepository {
     private Tasks: ITask[] = [];
     
     public async CreateTask(task: Omit<ITask, 'Id'>): Promise<ITask> {
