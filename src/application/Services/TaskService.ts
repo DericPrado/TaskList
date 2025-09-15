@@ -12,6 +12,10 @@ export class TaskService implements ITaskService {
         return this.repository.CreateTask(task);
     }
 
+    public async GetTaskById(id: string): Promise<ITask | null> {
+        return this.repository.GetTaskById(id);
+    }
+
     public async GetAllTasks(): Promise<ITask[]> {
         return this.repository.GetAllTasks();
     }

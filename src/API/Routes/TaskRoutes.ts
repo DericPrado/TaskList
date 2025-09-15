@@ -22,10 +22,21 @@ export class TaskRoutes implements ITaskRoutes {
             res.status(201).json(createdTask);
         });
 
+        this.Routes.get('/GetTask/:id', async (req, res) => {
+            const { id } = req.params;
+            const task = await this.TaskController.GetTaskById(id);
+            if (task) {
+                res.status(200).json(task);
+            } else {
+                res.status(404).json({ message: "Task not found" });
+            }
+        });
+
         this.Routes.get('/GetAllTasks', async (req, res) => {
             const tasks = await this.TaskController.GetAllTasks();
             res.status(200).json(tasks);
         });
+
         this.Routes.put('/UpdateTask/:id', async (req, res) => {
             const { id } = req.params;
             const updatedTaskData = req.body;

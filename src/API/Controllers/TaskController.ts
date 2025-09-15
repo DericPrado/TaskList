@@ -12,6 +12,10 @@ export class TaskController implements ITaskController {
         CreateTask(task: Omit<ITask, 'Id'>): Promise<ITask> {
         return this.taskService.CreateTask(task);
         }
+
+        GetTaskById(id: string): Promise<ITask | null> {
+        return this.taskService.GetTaskById(id);
+        }
     
         GetAllTasks(): Promise<ITask[]> {
         return this.taskService.GetAllTasks();

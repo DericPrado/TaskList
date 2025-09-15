@@ -15,6 +15,11 @@ export class InMemoryRepository implements IInMemoryRepository {
         return newTask;
     }
 
+    public async GetTaskById(id: string): Promise<ITask | null> {
+        const task = this.Tasks.find(task => task.Id === id);
+        return task || null;
+    }
+
     public async GetAllTasks(): Promise<ITask[]> {
         return this.Tasks;
     }
